@@ -62,43 +62,45 @@ ChronosMCP transforms Jira into an **autonomous flight simulator for software re
 
 ```mermaid
 flowchart TD
-    subgraph AtlassianCloud["Atlassian Cloud Site (fokrulanthro16.atlassian.net)"]
-        Jira1["SCRUM-1: Core-Pay API v3 Upgrade"]
-        Jira2["SCRUM-2: Mobile Instant Checkout"]
-        Conf["Confluence: POL-402 (PCI-DSS v4.0)"]
-        JiraSub["SCRUM-5: Dual-Token Remediation Subtask"]
+    subgraph Cloud [Atlassian Cloud fokrulanthro16]
+        Jira1[SCRUM-1 Core-Pay Settlement API]
+        Jira2[SCRUM-2 Mobile Checkout Pipeline]
+        Conf[Confluence Policy POL-402 PCI-DSS]
+        JiraSub[SCRUM-5 Dual-Token Remediation Subtask]
     end
 
-    subgraph ChronosForge["ChronosMCP Forge Application (App ID: 84d8afae...)"]
-        CustomUI["Custom UI Issue Panel (@forge/bridge)"]
-        Resolver["Resolver Backend Service (@forge/resolver)"]
-        GraphEngine["Teamwork Graph & Blast Engine (src/graphEngine.js)"]
-        CryptoLedger["SHA-256 Merkle Ledger (src/cryptoLedger.js)"]
-        KVS[("Tenant Isolated KVS (@forge/kvs)")]
-        RovoAgent["Rovo Agent (chronos-release-guardian)"]
-        MCPGateway["WebTrigger MCP Server (JSON-RPC 2.0)"]
+    subgraph ForgeApp [ChronosMCP Forge Application]
+        CustomUI[Custom UI Issue Panel]
+        Resolver[Resolver Backend Service]
+        GraphEngine[Teamwork Graph and Blast Engine]
+        CryptoLedger[SHA-256 Merkle Release Ledger]
+        KVS[Tenant Key-Value Storage KVS]
+        RovoAgent[Rovo Agent Release Guardian]
+        MCPGateway[WebTrigger MCP Server JSON-RPC]
     end
 
-    subgraph ExternalIDEs["External AI Developer Workstations"]
-        Cursor["Cursor AI IDE"]
-        Antigravity["Antigravity Coding Assistant"]
-        Claude["Claude Desktop"]
+    subgraph IDEs [External AI Developer IDEs]
+        Cursor[Cursor AI IDE]
+        Antigravity[Antigravity Assistant]
+        Claude[Claude Desktop]
     end
 
-    Jira1 <-->|"BLOCKS / IS BLOCKED BY"| Jira2
-    Jira1 -->|"GOVERNED_BY"| Conf
-    Jira2 -->|"GOVERNED_BY"| Conf
+    Jira1 -->|BLOCKS| Jira2
+    Jira1 -->|GOVERNED BY| Conf
+    Jira2 -->|GOVERNED BY| Conf
 
-    CustomUI <-->|"invoke()"| Resolver
+    CustomUI -->|Invoke Bridge| Resolver
     Resolver --> GraphEngine
     Resolver --> CryptoLedger
-    CryptoLedger <--> KVS
+    CryptoLedger --> KVS
 
-    RovoAgent -->|"rovo:action"| GraphEngine
-    RovoAgent -->|"Auto-Provisions"| JiraSub
-    RovoAgent -->|"Alerts Comment"| Jira2
+    RovoAgent -->|Action Execution| GraphEngine
+    RovoAgent -->|Auto-Creates| JiraSub
+    RovoAgent -->|Alerts Comment| Jira2
 
-    ExternalIDEs <-->|"Model Context Protocol (HTTP POST/GET)"| MCPGateway
+    Cursor -->|Model Context Protocol| MCPGateway
+    Antigravity -->|Model Context Protocol| MCPGateway
+    Claude -->|Model Context Protocol| MCPGateway
     MCPGateway --> GraphEngine
     MCPGateway --> CryptoLedger
 ```
@@ -108,29 +110,29 @@ flowchart TD
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Dev as Developer (Cursor / IDE)
-    participant MCP as Chronos MCP Server (WebTrigger)
+    actor Dev as Developer Workstation
+    participant MCP as Chronos MCP Server
     participant Graph as Teamwork Graph Engine
     participant Jira as Jira Cloud REST API
     participant Rovo as Rovo Agent Guardian
     participant Ledger as SHA-256 Crypto Ledger
 
-    Dev->>MCP: tools/call: simulate_issue_blast_radius(SCRUM-1)
-    MCP->>Graph: Traverse dependencies & policies
-    Graph->>Jira: Inspect SCRUM-1 <-> SCRUM-2 & POL-402
-    Graph-->>MCP: Blast Radius: 38% (CRITICAL_COLLISION: Schema Drift)
-    MCP-->>Dev: Alert: Downstream Mobile Checkout will fail!
+    Dev->>MCP: Query simulate blast radius for SCRUM-1
+    MCP->>Graph: Traverse dependencies and policies
+    Graph->>Jira: Inspect SCRUM-1 to SCRUM-2 and POL-402
+    Graph-->>MCP: Blast Radius 38 percent Critical Collision
+    MCP-->>Dev: Alert Downstream Mobile Checkout will fail
 
     Dev->>Rovo: Trigger Auto-Remediate Silos
-    Rovo->>Jira: POST /rest/api/3/issue (Create subtask SCRUM-5)
-    Rovo->>Jira: POST /rest/api/3/issue/SCRUM-2/comment (Alert mobile team)
-    Rovo->>Jira: PUT labels [chronos-verified, blast-radius-mitigated]
-    Rovo-->>Graph: Re-evaluate state: Ship Confidence jumps to 98% (A+)
+    Rovo->>Jira: Create remediation subtask SCRUM-5
+    Rovo->>Jira: Post alignment alert comment on SCRUM-2
+    Rovo->>Jira: Update verification labels
+    Rovo-->>Graph: Ship Confidence elevates to 98 percent
 
-    Dev->>Ledger: mint_cryptographic_receipt(SCRUM-1)
+    Dev->>Ledger: Mint cryptographic release receipt
     Ledger->>Ledger: Compute SHA-256 Merkle Context Hash
-    Ledger->>Jira: Persist Receipt (VERI-7E8602AEB534) to Forge KVS
-    Ledger-->>Dev: Return Tamper-Free Verification Proof (Status 200 OK)
+    Ledger->>Jira: Persist receipt to Forge KVS
+    Ledger-->>Dev: Return verified tamper-free proof
 ```
 
 ---
