@@ -32,3 +32,5 @@ Thumbs.db
 dist-temp/
 coverage/
 .cache/
+video_build/
+*.mp4
