@@ -1,0 +1,92 @@
+modules:
+  jira:issuePanel:
+    - key: chronos-command-center
+      title: 'ChronosMCP: Blast-Radius & Ship Confidence'
+      icon: https://developer.atlassian.com/favicon.ico
+      resource: main-resource
+      resolver:
+        function: resolver-fn
+  action:
+    - key: analyze-blast-radius
+      name: Analyze Blast Radius
+      description: Computes causal ripple effects, downstream collisions, and calculates live Ship Confidence Score.
+      actionVerb: GET
+      function: rovoActionHandler
+      inputs:
+        issueKey:
+          title: Issue Key
+          description: The Jira issue key to simulate (e.g. SCRUM-1)
+          type: string
+    - key: auto-remediate-silos
+      name: Auto Remediate Silos
+      description: Automatically creates mitigation subtasks, links dependent issues, and posts alignment alerts.
+      actionVerb: CREATE
+      function: rovoActionHandler
+      inputs:
+        issueKey:
+          title: Issue Key
+          description: The Jira issue key to remediate (e.g. SCRUM-1)
+          type: string
+    - key: mint-cryptographic-receipt
+      name: Mint Cryptographic Receipt
+      description: Generates an immutable SHA-256 Merkle Context Proof over issue payload, dependencies, and policy state.
+      actionVerb: CREATE
+      function: rovoActionHandler
+      inputs:
+        issueKey:
+          title: Issue Key
+          description: The Jira issue key to attest (e.g. SCRUM-1)
+          type: string
+  rovo:agent:
+    - key: chronos-release-guardian
+      name: Chronos Release Guardian
+      description: Autonomous cross-silo release architect that simulates blast radius across Teamwork Graph and auto-aligns engineering teams.
+      prompt: |
+        You are Chronos Release & Context Guardian, an elite release safety AI.
+        Your mission is to prevent cross-silo breaking changes across engineering teams.
+        When an issue is being analyzed, invoke analyze-blast-radius to detect downstream collisions across the Teamwork Graph and check Confluence compliance policies.
+        If breaking changes are detected, invoke auto-remediate-silos to create mitigation subtasks, notify dependent teams, and align contracts.
+        Finally, invoke mint-cryptographic-receipt to produce an immutable SHA-256 release confidence proof before deployment.
+      conversationStarters:
+        - "Simulate downstream blast radius for this issue"
+        - "Auto-align dependent teams and remediate silos"
+        - "Mint cryptographic release confidence proof"
+      actions:
+        - analyze-blast-radius
+        - auto-remediate-silos
+        - mint-cryptographic-receipt
+  rovo:mcp:
+    - key: chronos-rovo-mcp
+      name: Chronos MCP Server
+      tools:
+        - analyze-blast-radius
+        - auto-remediate-silos
+        - mint-cryptographic-receipt
+  webtrigger:
+    - key: chronos-mcp-endpoint
+      function: mcpServerHandler
+  function:
+    - key: resolver-fn
+      handler: index.resolverHandler
+    - key: rovoActionHandler
+      handler: index.rovoHandler
+    - key: mcpServerHandler
+      handler: index.mcpHandler
+resources:
+  - key: main-resource
+    path: static/dashboard/dist
+permissions:
+  scopes:
+    - storage:app
+    - read:jira-work
+    - write:jira-work
+    - read:jira-user
+    - read:confluence-content.all
+    - read:confluence-space.summary
+  content:
+    styles:
+      - unsafe-inline
+app:
+  runtime:
+    name: nodejs22.x
+  id: ari:cloud:ecosystem::app/84d8afae-9ec0-47fc-8212-e27f79430216

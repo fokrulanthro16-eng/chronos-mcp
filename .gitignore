@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+static/dashboard/node_modules/
+
+# Environment and sensitive keys
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Forge & CLI caches
+.forge/
+.forge-snapshot/
+.temp/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary directories
+dist-temp/
+coverage/
+.cache/

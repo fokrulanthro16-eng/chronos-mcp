@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 840" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="dbBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080C14" />
+      <stop offset="100%" stop-color="#0B0F19" />
+    </linearGradient>
+
+    <linearGradient id="cardBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141E33" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+
+    <linearGradient id="greenPulse" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+
+    <filter id="badgeGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Main Background -->
+  <rect width="1200" height="840" rx="16" fill="url(#dbBgGrad)" stroke="#1E293B" stroke-width="2" />
+
+  <!-- macOS / Atlassian Chrome Window Top Bar -->
+  <g transform="translate(0, 0)">
+    <rect width="1200" height="44" rx="16" fill="#0D1322" />
+    <circle cx="28" cy="22" r="6" fill="#EF4444" />
+    <circle cx="48" cy="22" r="6" fill="#F59E0B" />
+    <circle cx="68" cy="22" r="6" fill="#10B981" />
+
+    <!-- Browser URL Bar -->
+    <rect x="240" y="8" width="720" height="28" rx="6" fill="#1E293B" stroke="#334155" stroke-width="1" />
+    <text x="600" y="26" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" text-anchor="middle">
+      🔒 https://fokrulanthro16.atlassian.net/browse/SCRUM-1 — Jira Cloud
+    </text>
+  </g>
+
+  <!-- Issue Title Header -->
+  <g transform="translate(40, 68)">
+    <rect width="1120" height="74" rx="10" fill="#131C30" stroke="#1E293B" stroke-width="1.2" />
+    <rect x="20" y="16" width="70" height="22" rx="4" fill="#312E81" />
+    <text x="55" y="31" fill="#A5B4FC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="800" text-anchor="middle">SCRUM-1</text>
+    <text x="100" y="32" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="16" font-weight="800">
+      [Core-Pay] Upgrade Payment Settlement API v3 &amp; Tokenization Schema
+    </text>
+    <text x="20" y="58" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">
+      Assignee: <tspan fill="#E2E8F0" font-weight="700">FOKRUL ISLAM</tspan> • Labels: <tspan fill="#38BDF8">chronos-verified</tspan>, <tspan fill="#38BDF8">blast-radius-mitigated</tspan>, <tspan fill="#38BDF8">payments-core</tspan>
+    </text>
+  </g>
+
+  <!-- ChronosMCP Panel Container -->
+  <g transform="translate(40, 156)">
+    <rect width="1120" height="644" rx="12" fill="#0C1220" stroke="#23304A" stroke-width="1.5" />
+
+    <!-- Top Telemetry Bar inside App -->
+    <g transform="translate(20, 18)">
+      <rect width="1080" height="76" rx="10" fill="#131B2E" stroke="#1E293B" stroke-width="1.2" />
+      <circle cx="36" cy="38" r="18" fill="#4338CA" />
+      <text x="28" y="44" font-size="18">⚡</text>
+      <text x="64" y="34" fill="white" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="17" font-weight="900">
+        ChronosMCP <tspan fill="#06B6D4" font-size="12" font-weight="800">VeriGraph AI</tspan>
+      </text>
+      <text x="64" y="52" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">
+        Causal Blast-Radius Simulator, Policy Gatekeeper &amp; Bi-Directional Atlassian MCP Bridge
+      </text>
+
+      <!-- Ship Confidence Score Pill (Elevated to 98%) -->
+      <g transform="translate(680, 14)">
+        <rect width="380" height="48" rx="24" fill="url(#greenPulse)" filter="url(#badgeGlow)" />
+        <circle cx="32" cy="24" r="14" fill="#064E3B" />
+        <text x="25" y="30" font-size="14">🛡️</text>
+        <text x="56" y="21" fill="#D1FAE5" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="800" letter-spacing="1">SHIP CONFIDENCE SCORE</text>
+        <text x="56" y="38" fill="white" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="16" font-weight="900">
+          98% — CLEARED FOR PRODUCTION
+        </text>
+      </g>
+    </g>
+
+    <!-- 4 KPI Telemetry Cards -->
+    <g transform="translate(20, 106)">
+      <!-- Card 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="258" height="66" rx="8" fill="#131B2E" stroke="#1E293B" stroke-width="1" />
+        <text x="14" y="22" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700">CURRENT CONTEXT ISSUE</text>
+        <text x="14" y="42" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" font-weight="800">SCRUM-1</text>
+        <text x="14" y="56" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9">Core Payments Upgrade v3</text>
+      </g>
+
+      <!-- Card 2 -->
+      <g transform="translate(274, 0)">
+        <rect width="258" height="66" rx="8" fill="#131B2E" stroke="#1E293B" stroke-width="1" />
+        <text x="14" y="22" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700">BLAST RADIUS SEVERITY</text>
+        <text x="14" y="42" fill="#34D399" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" font-weight="800">NEGLIGIBLE (2%)</text>
+        <text x="14" y="56" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9">0 Active Release Blockers</text>
+      </g>
+
+      <!-- Card 3 -->
+      <g transform="translate(548, 0)">
+        <rect width="258" height="66" rx="8" fill="#131B2E" stroke="#1E293B" stroke-width="1" />
+        <text x="14" y="22" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700">REGULATORY POLICY GATE</text>
+        <text x="14" y="42" fill="#38BDF8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" font-weight="800">POL-402 SATISFIED</text>
+        <text x="14" y="56" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9">PCI-DSS v4.0 Zero-Drift Mandate</text>
+      </g>
+
+      <!-- Card 4 -->
+      <g transform="translate(822, 0)">
+        <rect width="258" height="66" rx="8" fill="#131B2E" stroke="#1E293B" stroke-width="1" />
+        <text x="14" y="22" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700">ATLASSIAN MCP BRIDGE</text>
+        <text x="14" y="42" fill="#A78BFA" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" font-weight="800">SPEC 2024-11-05</text>
+        <text x="14" y="56" fill="#10B981" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9">● JSON-RPC 2.0 WebTrigger Active</text>
+      </g>
+    </g>
+
+    <!-- 4 High Impact Action Buttons -->
+    <g transform="translate(20, 184)">
+      <rect width="258" height="38" rx="6" fill="#1E293B" stroke="#334155" stroke-width="1" />
+      <text x="129" y="24" fill="#F1F5F9" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="800" text-anchor="middle">⚡ 1. Seed Enterprise Scenario</text>
+
+      <rect x="274" y="0" width="258" height="38" rx="6" fill="#4338CA" />
+      <text x="403" y="24" fill="white" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="800" text-anchor="middle">🔍 2. Run Blast Simulation</text>
+
+      <rect x="548" y="0" width="258" height="38" rx="6" fill="#059669" />
+      <text x="677" y="24" fill="white" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="800" text-anchor="middle">🤖 3. Rovo Auto-Align Silos (98%)</text>
+
+      <rect x="822" y="0" width="258" height="38" rx="6" fill="#0891B2" />
+      <text x="951" y="24" fill="white" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="800" text-anchor="middle">🛡️ 4. Mint SHA-256 Receipt</text>
+    </g>
+
+    <!-- Teamwork Graph Visualization Section -->
+    <g transform="translate(20, 234)">
+      <rect width="1080" height="240" rx="10" fill="#070B14" stroke="#1E293B" stroke-width="1.2" />
+      <text x="20" y="26" fill="#CBD5E1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="800">
+        🌐 Multi-Hop Teamwork Graph (TWG) Live Topology &amp; Remediation Bridge
+      </text>
+
+      <!-- Connecting Edge lines -->
+      <path d="M 180 110 L 480 110" stroke="#10B981" stroke-width="3" />
+      <text x="330" y="100" fill="#34D399" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="800" text-anchor="middle">
+        MITIGATED (DUAL-TOKEN ADAPTER ACTIVE)
+      </text>
+
+      <!-- Node 1: SCRUM-1 -->
+      <g transform="translate(40, 70)">
+        <rect width="140" height="76" rx="8" fill="#1E1B4B" stroke="#6366F1" stroke-width="2" />
+        <text x="14" y="22" fill="#A5B4FC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="900">SCRUM-1</text>
+        <text x="14" y="40" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700">Core-Pay Service</text>
+        <text x="14" y="54" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9">Tier 1 • Payments Engine</text>
+        <rect x="14" y="58" width="65" height="12" rx="2" fill="#4338CA" />
+        <text x="46" y="67" fill="#E0E7FF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="7" font-weight="800" text-anchor="middle">MUTATION</text>
+      </g>
+
+      <!-- Node 2: SCRUM-2 -->
+      <g transform="translate(480, 70)">
+        <rect width="150" height="76" rx="8" fill="#064E3B" stroke="#10B981" stroke-width="2" />
+        <text x="14" y="22" fill="#6EE7B7" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="900">SCRUM-2</text>
+        <text x="14" y="40" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700">Mobile Checkout</text>
+        <text x="14" y="54" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9">iOS 18 / Android 15</text>
+        <rect x="14" y="58" width="75" height="12" rx="2" fill="#047857" />
+        <text x="51" y="67" fill="white" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="7" font-weight="800" text-anchor="middle">PROTECTED</text>
+      </g>
+
+      <!-- Node 3: Subtask SCRUM-5 (Bridge) -->
+      <g transform="translate(240, 140)">
+        <rect width="180" height="46" rx="6" fill="#042F2E" stroke="#0D9488" stroke-width="1.5" />
+        <text x="90" y="20" fill="#5EEAD4" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="800" text-anchor="middle">SCRUM-5: Dual-Token Bridge</text>
+        <text x="90" y="34" fill="#99F6E4" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" text-anchor="middle">Automated Silo Remediation Active</text>
+      </g>
+
+      <!-- Node 4: Policy POL-402 -->
+      <g transform="translate(730, 70)">
+        <rect width="180" height="76" rx="8" fill="#083344" stroke="#06B6D4" stroke-width="1.5" />
+        <text x="14" y="22" fill="#38BDF8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="900">POL-402 (Confluence)</text>
+        <text x="14" y="40" fill="#E0F2FE" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">PCI-DSS v4.0 Zero-Drift</text>
+        <text x="14" y="54" fill="#34D399" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="800">Status: 100% SATISFIED</text>
+      </g>
+
+      <!-- Node 5: Owners -->
+      <g transform="translate(940, 70)">
+        <rect width="120" height="76" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1.5" />
+        <text x="12" y="22" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="800">FOKRUL ISLAM</text>
+        <text x="12" y="36" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="8">Core-Pay Lead</text>
+        <text x="12" y="52" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="800">Elena Rostova</text>
+        <text x="12" y="66" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="8">Mobile Edge Lead</text>
+      </g>
+    </g>
+
+    <!-- Bottom Section: SHA-256 Ledger & Live MCP Bridge Inspector -->
+    <g transform="translate(20, 488)">
+      <!-- Left: Minted Cryptographic Receipt Card -->
+      <g transform="translate(0, 0)">
+        <rect width="530" height="136" rx="10" fill="#131B2E" stroke="#1E293B" stroke-width="1.2" />
+        <text x="18" y="26" fill="#CBD5E1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="800">
+          🛡️ SHA-256 Merkle Release Receipt (Forge KVS Persisted)
+        </text>
+        <rect x="420" y="12" width="94" height="20" rx="4" fill="#064E3B" />
+        <text x="467" y="26" fill="#6EE7B7" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="800" text-anchor="middle">VERIFIED 100%</text>
+
+        <text x="18" y="52" fill="#38BDF8" font-family="monospace" font-size="12" font-weight="800">Receipt ID: VERI-7E8602AEB534</text>
+        <text x="18" y="72" fill="#64748B" font-family="monospace" font-size="10">
+          SHA-256: <tspan fill="#CBD5E1">7e8602aeb5341eda35098f3d919f4c614b9adf6adae9afd8e5e8c8918c495232</tspan>
+        </text>
+        <text x="18" y="94" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">
+          Attested By: <tspan fill="white" font-weight="700">FOKRUL ISLAM</tspan> • Policies: <tspan fill="#34D399" font-weight="700">POL-402 (PCI-DSS v4.2 COMPLIANT)</tspan>
+        </text>
+        <text x="18" y="114" fill="#10B981" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700">
+          ✓ Context Status: INTEGRITY_VERIFIED_TAMPER_FREE
+        </text>
+      </g>
+
+      <!-- Right: Live Atlassian MCP Bridge Card -->
+      <g transform="translate(550, 0)">
+        <rect width="530" height="136" rx="10" fill="#131B2E" stroke="#1E293B" stroke-width="1.2" />
+        <text x="18" y="26" fill="#CBD5E1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="800">
+          🔌 Live Atlassian MCP Server (WebTrigger Gateway)
+        </text>
+        <rect x="420" y="12" width="94" height="20" rx="4" fill="#1E3A8A" />
+        <text x="467" y="26" fill="#93C5FD" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="800" text-anchor="middle">ONLINE 200 OK</text>
+
+        <rect x="18" y="40" width="494" height="28" rx="4" fill="#070B14" stroke="#1F2937" stroke-width="1" />
+        <text x="28" y="58" fill="#38BDF8" font-family="monospace" font-size="10">
+          https://84d8afae-9ec0-47fc-8212-e27f79430216.hello.atlassian-dev.net/x1/6aHEWuegPcDuTaXG0bLOpPFUZ1Q
+        </text>
+
+        <text x="18" y="88" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">
+          Exposed Tools: <tspan fill="#E2E8F0">simulate_issue_blast_radius</tspan>, <tspan fill="#E2E8F0">get_teamwork_graph_context</tspan>
+        </text>
+        <text x="18" y="106" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">
+          Compatible IDEs: <tspan fill="#34D399" font-weight="700">Cursor</tspan>, <tspan fill="#34D399" font-weight="700">Antigravity</tspan>, <tspan fill="#34D399" font-weight="700">Claude Desktop</tspan> (MCP Spec 2024-11-05)
+        </text>
+        <text x="18" y="124" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700">
+          ⚡ 1-Click JSON-RPC Handshake Verified Latency: 34ms
+        </text>
+      </g>
+    </g>
+
+  </g>
+</svg>

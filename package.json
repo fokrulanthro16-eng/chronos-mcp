@@ -1,0 +1,16 @@
+{
+  "name": "chronos-mcp",
+  "version": "1.0.0",
+  "description": "ChronosMCP (VeriGraph AI) - Causal Blast-Radius Simulator & Atlassian MCP Bridge",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "forge lint",
+    "build:dashboard": "npm --prefix static/dashboard run build",
+    "build": "npm run build:dashboard"
+  },
+  "dependencies": {
+    "@forge/api": "^5.1.0",
+    "@forge/kvs": "^2.1.1",
+    "@forge/resolver": "^1.6.0"
+  }
+}

@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  chronos-mcp-bridge:
+    build: .
+    container_name: chronos-mcp-bridge
+    environment:
+      - CHRONOS_MCP_ENDPOINT_URL=https://84d8afae-9ec0-47fc-8212-e27f79430216.hello.atlassian-dev.net/x1/6aHEWuegPcDuTaXG0bLOpPFUZ1Q
+      - NODE_ENV=production
+    restart: unless-stopped

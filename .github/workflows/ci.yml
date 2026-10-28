@@ -1,0 +1,53 @@
+name: ChronosMCP CI & Codegeist Quality Gate
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-repository:
+    name: Lint, Syntax & Compliance Verification
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Root Dependencies
+        run: npm ci
+
+      - name: Verify JavaScript Syntax
+        run: |
+          for file in src/*.js scripts/*.js; do
+            if [ -f "$file" ]; then
+              node --check "$file"
+            fi
+          done
+          echo "JavaScript syntax check passed."
+
+      - name: Verify Manifest & Configuration
+        run: |
+          test -f manifest.yml || (echo "manifest.yml missing" && exit 1)
+          grep -q "nodejs22.x" manifest.yml || (echo "manifest.yml runtime mismatch" && exit 1)
+          grep -q "chronos-release-guardian" manifest.yml || (echo "rovo:agent missing" && exit 1)
+          grep -q "chronos-mcp-endpoint" manifest.yml || (echo "webtrigger missing" && exit 1)
+          echo "Manifest structure verified."
+
+      - name: Verify Legal & Marketplace Documentation
+        run: |
+          test -f LICENSE || exit 1
+          test -f README.md || exit 1
+          test -f ARCHITECTURE.md || exit 1
+          test -f SECURITY.md || exit 1
+          test -f PRIVACY.md || exit 1
+          test -f assets/chronos-hero-banner.svg || exit 1
+          test -f assets/dashboard-preview.svg || exit 1
+          echo "All compliance and visual assets present."
